@@ -92,7 +92,7 @@
 	<target name="dist" depends="compile">
 		<delete dir="dist" />
 		<mkdir dir="dist" />
-		<jar jarfile="plantuml.jar" basedir="build">
+		<jar jarfile="target/plantuml.jar" basedir="build">
 			<manifest>
 				<attribute name="Automatic-Module-Name" value="net.sourceforge.plantuml" />
 				<attribute name="Main-Class" value="net.sourceforge.plantuml.Run" />
