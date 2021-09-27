@@ -2,6 +2,7 @@ package nonreg.simple;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import nonreg.BasicTest;
@@ -17,6 +18,7 @@ Alice -> Bob : Hello
 """
 
  */
+@Disabled
 public class A0000_Test extends BasicTest {
 
 	@Test

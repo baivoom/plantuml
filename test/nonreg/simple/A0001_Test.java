@@ -2,6 +2,7 @@ package nonreg.simple;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import nonreg.BasicTest;
@@ -22,6 +23,7 @@ Bob->Alice: And this\nis an other on\nvery long too
 """
 
  */
+@Disabled
 public class A0001_Test extends BasicTest {
 
 	@Test

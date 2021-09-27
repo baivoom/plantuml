@@ -2,6 +2,7 @@ package nonreg.simple;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import nonreg.BasicTest;
@@ -25,6 +26,7 @@ Project starts the 2020-10-15
 """
 
  */
+@Disabled
 public class A0003_Test extends BasicTest {
 
 	@Test
