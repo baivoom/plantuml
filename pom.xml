@@ -105,6 +105,21 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-server-core</artifactId>
+            <version>${ktor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-server-netty</artifactId>
+            <version>${ktor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback_version}</version>
+        </dependency>
     </dependencies>
 
     <licenses>
@@ -128,7 +143,10 @@
 
     <properties>
         <kotlin.version>1.6.0-M1</kotlin.version>
+        <ktor.version>1.6.3</ktor.version>
+        <logback_version>1.2.5</logback_version>
     </properties>
+
 
     <developers>
         <developer>

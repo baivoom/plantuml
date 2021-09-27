@@ -60,6 +60,7 @@ import net.sourceforge.plantuml.code.NoPlantumlCompressionException;
 import net.sourceforge.plantuml.code.Transcoder;
 import net.sourceforge.plantuml.code.TranscoderUtil;
 import net.sourceforge.plantuml.ftp.FtpServer;
+import net.sourceforge.plantuml.ktor.KtorServerKt;
 import net.sourceforge.plantuml.picoweb.PicoWebServer;
 import net.sourceforge.plantuml.png.MetadataTag;
 import net.sourceforge.plantuml.preproc.Stdlib;
@@ -78,9 +79,14 @@ public class Run {
 
 	private static Cypher cypher;
 
+	public static void serve() {
+		KtorServerKt.serve();
+	}
+
 	public static void main(String[] argsArray)
 			throws NoPlantumlCompressionException, IOException, InterruptedException {
 		System.setProperty("log4j.debug", "false");
+
 		final long start = System.currentTimeMillis();
 		if (argsArray.length > 0 && argsArray[0].equalsIgnoreCase("-headless")) {
 			System.setProperty("java.awt.headless", "true");
@@ -146,7 +152,8 @@ public class Run {
 		}
 
 		if (option.getPicowebPort() != -1) {
-			goPicoweb(option);
+			//goPicoweb(option);
+			serve();
 			return;
 		}
 
