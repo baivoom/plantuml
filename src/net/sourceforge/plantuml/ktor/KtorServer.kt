@@ -31,17 +31,22 @@ private fun getImageContentType(format: FileFormat) : ContentType {
 
 fun serve() {
     embeddedServer(Netty, port = 8080)  {
+
         routing {
             get("/plantuml/{format}/{compressed}") {
+
                 val format = getImageFormat(this.call.parameters["format"])
                 if (format == FileFormat.DEBUG) {
                     call.respond(HttpStatusCode.BadRequest, "format is not supported")
                     return@get
                 }
-                val compressed = this.call.parameters["compressed"]
+                var compressed = this.call.parameters["compressed"]
                 if (compressed.isNullOrBlank()) {
                     call.respond(HttpStatusCode.BadRequest, "content is required")
                     return@get
+                }
+                if (!compressed.startsWith("~")) {
+                    compressed = "~1$compressed"
                 }
                 val transcoder = TranscoderUtil.getDefaultTranscoderProtected()
 
@@ -66,7 +71,7 @@ fun serve() {
                     call.response.headers.append("X-PlantUML-Diagram-Width", image.width.toString())
                     call.response.headers.append("X-PlantUML-Diagram-Height", image.height.toString())
 
-                    call.respondBytes(getImageContentType(format), HttpStatusCode.fromValue(image.status), suspend {
+                    call.respondBytes(getImageContentType(format), HttpStatusCode.OK, suspend {
                         os.toByteArray()
                     })
                 }
